@@ -9,8 +9,12 @@
     background-color: #8edafc;
 }
 
-.icon-color {
+.icon-color.fa-solid {
     color: #8edafc;
+}
+
+.my-font-color{
+    color: rgb(170, 169, 169);
 }
 
 .myfont-size {
@@ -29,9 +33,14 @@
 .myh-2 {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    height: 4rem;
+    height: 4.5rem;
     /* border: 1px solid black; */
 }
+
+.form-control::placeholder {
+    color: gray;
+}
+
 
 .icons {
     margin: 0 0.5rem;
@@ -45,15 +54,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin-right: 1rem;
     background-color: white;
 }
 
 .fa-solid {
     font-size: 1.5rem;
+    color: gray;
 }
 
 .box-contatti {
-    height: calc(100vh - 14rem);
+    height: calc(100vh - 15.5rem);
+}
+
+.myborder {
+    border-bottom: 1px solid #eaeaea;
+}
+
+.box-conversazioni {
+    height: calc(100vh - 11rem);
+    width: auto;
+    background-image: url(./img/mine.jpg);
+    border-radius: 10px;
 }

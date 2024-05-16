@@ -22,9 +22,9 @@
                                     <nav class="d-flex flex-row justify-content-between align-items-center myh-2">
                                         <div class="d-flex flex-row align-items-center ps-2">
                                             <div class="circle">
-                                                <i class="fa-solid fa-bell-slash"></i>
+                                                <img class="object-fit-cover w-100" src="./img/avatar_io.jpg" alt="">
                                             </div>
-                                            <p class="m-0">Sofia</p>
+                                            <p class="m-0 fw-bold fs-4">Sofia</p>
                                         </div>
                                         <div class="d-flex">
                                             <div class="icons">
@@ -40,7 +40,7 @@
                                     </nav>
                                     <div class="d-flex flex-row align-items-center myh-2 notification-bg ps-2">
                                         <div class="circle">
-                                            <i class="fa-solid fa-bell-slash icon-color"></i>
+                                            <i class="icon-color fa-solid fa-bell-slash"></i>
                                         </div>
                                         <div>
                                             <p class="m-0">Ricevi notifiche di nuovi messaggi</p>
@@ -55,20 +55,63 @@
                                     </div>
                                     <div class="box-contatti bg-white overflow-auto" style="border-bottom-left-radius: 10px;">
                                         <template v-for="contact in contacts">
-                                            <div class="d-flex flex-row align-items-center myh-2 ps-2">
+                                            <div class="d-flex flex-row align-items-center myh-2 ps-2 position-relative myborder">
                                                 <div class="circle">
-                                                    <img :src="contact.avatar" alt="">
+                                                    <img class="object-fit-cover w-100" :src="contact.avatar" alt="">
                                                 </div>
                                                 <div>
-                                                    <p class="m-0">{{ contact.name }}</p>
-                                                    <p class="m-0 myfont-size">Ultimo messaggio inviato</p>
+                                                    <p class="m-0 fw-bold">{{ contact.name }}</p>
+                                                    <p class="m-0 myfont-size my-font-color">Ultimo messaggio inviato</p>
+                                                </div>
+                                                <div>
+                                                    <p class="position-absolute top-0 end-0 my-2 mx-3 my-font-color" style="font-size: 0.7rem;">12:00</p>
                                                 </div>
                                             </div>
                                         </template>
                                     </div>
                                 </div>
                                 <div class="col-8">
-                                    ciao
+                                    <nav class="d-flex flex-row justify-content-between align-items-center myh-2">
+                                        <div class="d-flex flex-row align-items-center ps-2">
+                                            <div class="circle">
+                                                <img class="object-fit-cover w-100" src="./img/avatar_io.jpg" alt="">
+                                            </div>
+                                            <p class="m-0 fw-bold fs-4">Sofia</p>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="icons">
+                                                <i class="fa-solid fa-circle-notch"></i>
+                                            </div>
+                                            <div class="icons">
+                                                <i class="fa-solid fa-message"></i>
+                                            </div>
+                                            <div class="icons">
+                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                            </div>
+                                        </div>
+                                    </nav>
+                                    <div class="box-conversazioni overflow-auto">
+
+                                    </div>
+                                    <nav class="d-flex flex-row justify-content-between align-items-center myh-2">
+                                        <div class="d-flex flex-row align-items-center ps-2">
+                                            <div class="circle">
+                                                <img class="object-fit-cover w-100" src="./img/avatar_io.jpg" alt="">
+                                            </div>
+                                            <p class="m-0 fw-bold fs-4">Sofia</p>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="icons">
+                                                <i class="fa-solid fa-circle-notch"></i>
+                                            </div>
+                                            <div class="icons">
+                                                <i class="fa-solid fa-message"></i>
+                                            </div>
+                                            <div class="icons">
+                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                            </div>
+                                        </div>
+                                    </nav>
                                 </div>
                             </div>
                         </div>
