@@ -165,14 +165,34 @@ createApp({
             }
           ],
         }
-      ]
-
+      ],
+      activeConv: 0,
+      inputValue: "",
 
     }
   },
 
   methods: {
-
+    // mssgStatus() {
+    //   for (let i = 0; i < this.contacts.length; i++) {
+    //     const element = this.contacts[i];
+    //     let x = element.messages
+    //     for (let i = 0; i < x.length; i++) {
+    //       console.log(x[i].status)
+    //       let y = x[i].status
+    //       return y
+    //     }
+    //   }
+    //   if ( y == "received") {
+    //     return "mssg-received"
+    //   } else if ( y == "sent") {
+    //     return "mssg-sent"
+    //   }
+    // },
+    cliccato(index) {
+      console.log("cliccato")
+      this.activeConv = index
+    }
 
   },
 

@@ -54,8 +54,8 @@
                                         </div>
                                     </div>
                                     <div class="box-contatti bg-white overflow-auto" style="border-bottom-left-radius: 10px;">
-                                        <template v-for="contact in contacts">
-                                            <div class="d-flex flex-row align-items-center myh-2 ps-2 position-relative myborder">
+                                        <template v-for="contact, i in contacts">
+                                            <div @click="cliccato(i)" class="d-flex flex-row align-items-center myh-2 ps-2 position-relative myborder">
                                                 <div class="circle">
                                                     <img class="object-fit-cover w-100" :src="contact.avatar" alt="">
                                                 </div>
@@ -70,13 +70,18 @@
                                         </template>
                                     </div>
                                 </div>
+                                <!-- parte destra -->
                                 <div class="col-8">
                                     <nav class="d-flex flex-row justify-content-between align-items-center myh-2">
                                         <div class="d-flex flex-row align-items-center ps-2">
-                                            <div class="circle">
-                                                <img class="object-fit-cover w-100" src="./img/avatar_io.jpg" alt="">
-                                            </div>
-                                            <p class="m-0 fw-bold fs-4">Sofia</p>
+                                            <template v-for="contact, i in contacts">
+                                                <template v-if="i == activeConv">
+                                                    <div class="circle">
+                                                        <img class="object-fit-cover w-100" :src="contact.avatar" alt="">
+                                                    </div>
+                                                    <p class="m-0 fw-bold fs-4">{{ contact.name }}</p>
+                                                </template>
+                                            </template>
                                         </div>
                                         <div class="d-flex">
                                             <div class="icons">
@@ -91,18 +96,20 @@
                                         </div>
                                     </nav>
                                     <div class="box-conversazioni overflow-auto p-5">
-                                        <!-- <template> -->
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-12 d-flex justify-content-end">
-                                                        <div class="box-mssg position-relative my-2">
-                                                            <p class="word-break">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores ad placeat ex perspiciatis quibusdam tenetur assumenda consectetur consequatur suscipit quaerat? ciaoooooooooooooooooooooooooooooooooooooooooooooooo</p>
-                                                            <p class="position-absolute bottom-0 end-0 my-1 mx-2 my-font-color" style="font-size: 0.7rem;">12:00</p>
+                                        <template v-for="contact, i in contacts">
+                                            <template v-for="msg, i in contact.messages">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-12 d-flex justify-content-end">
+                                                            <div class="box-mssg position-relative my-2" v-if="msg.status == 'received'">
+                                                                <p class="word-break">{{ msg.message }}</p>
+                                                                <p class="position-absolute bottom-0 end-0 my-1 mx-2 my-font-color" style="font-size: 0.7rem;">12:00</p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        <!-- </template> -->
+                                            </template>
+                                        </template>
                                     </div>
                                     <div class="container">
                                         <div class="d-flex flex-row align-items-center myh-2">
