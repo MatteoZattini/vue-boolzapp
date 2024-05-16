@@ -14,9 +14,9 @@ createApp({
   },
 
   mounted() {
-    axios.get('').then((result) => {
-      const element = result.data    
-    })
+    // axios.get('').then((result) => {
+    //   const element = result.data    
+    // })
   },
   
 }).mount('#app')
