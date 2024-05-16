@@ -54,15 +54,17 @@
                                         </div>
                                     </div>
                                     <div class="box-contatti bg-white overflow-auto" style="border-bottom-left-radius: 10px;">
-                                        <div class="d-flex flex-row align-items-center myh-2 ps-2">
-                                            <div class="circle">
-                                                <i class="fa-solid fa-bell-slash icon-color"></i>
+                                        <template v-for="contact in contacts">
+                                            <div class="d-flex flex-row align-items-center myh-2 ps-2">
+                                                <div class="circle">
+                                                    <img :src="contact.avatar" alt="">
+                                                </div>
+                                                <div>
+                                                    <p class="m-0">{{ contact.name }}</p>
+                                                    <p class="m-0 myfont-size">Ultimo messaggio inviato</p>
+                                                </div>
                                             </div>
-                                            <div>
-                                                <p class="m-0">Ricevi notifiche di nuovi messaggi</p>
-                                                <p class="m-0 myfont-size">Ultimo messaggio inviato</p>
-                                            </div>
-                                        </div>
+                                        </template>
                                     </div>
                                 </div>
                                 <div class="col-8">
