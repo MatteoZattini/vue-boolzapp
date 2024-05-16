@@ -88,11 +88,12 @@
 }
 
 .box-mssg {
-    width: 20rem;
+    max-width: 20rem;
+    min-width: 4rem;
     height: auto;
     background-color: #d5f9ba;
     border-radius: 10px;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
 }
 
 .word-break {
@@ -101,9 +102,9 @@
 
 
 .mssg-received {
-    background-color: #d5f9ba;
+    background-color: white;
 }
 
 .mssg-sent {
-    background-color: white;
+    background-color: #d5f9ba;
 }

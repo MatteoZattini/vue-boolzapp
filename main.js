@@ -190,7 +190,6 @@ createApp({
     //   }
     // },
     cliccato(index) {
-      console.log("cliccato")
       this.activeConv = index
     }
 
