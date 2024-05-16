@@ -7,6 +7,8 @@
 
 .notification-bg {
     background-color: #8edafc;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .icon-color.fa-solid {
@@ -64,8 +66,14 @@
     color: gray;
 }
 
+.fa-regular {
+    font-size: 1.5rem;
+    color: gray;
+}
+
 .box-contatti {
     height: calc(100vh - 15.5rem);
+    border-top-right-radius: 10px;
 }
 
 .myborder {
@@ -77,4 +85,25 @@
     width: auto;
     background-image: url(./img/mine.jpg);
     border-radius: 10px;
+}
+
+.box-mssg {
+    width: 20rem;
+    height: auto;
+    background-color: #d5f9ba;
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+
+.word-break {
+    word-wrap: break-word;
+}
+
+
+.mssg-recieved {
+    background-color: #d5f9ba;
+}
+
+.mssg-sent {
+    background-color: white;
 }
