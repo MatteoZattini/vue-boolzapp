@@ -11,6 +11,10 @@
     border-bottom-right-radius: 10px;
 }
 
+.clickbg {
+    background-color: #dadbd4;
+}
+
 .icon-color.fa-solid {
     color: #8edafc;
 }

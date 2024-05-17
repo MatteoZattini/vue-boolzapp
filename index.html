@@ -55,18 +55,25 @@
                                     </div>
                                     <div class="box-contatti bg-white overflow-auto" style="border-bottom-left-radius: 10px;">
                                         <template v-for="contact, i in contacts">
-                                            <div @click="cliccato(i)" class="d-flex flex-row align-items-center myh-2 ps-2 position-relative myborder">
-                                                <div class="circle">
-                                                    <img class="object-fit-cover w-100" :src="contact.avatar" alt="">
-                                                </div>
-                                                <div>
-                                                    <p class="m-0 fw-bold">{{ contact.name }}</p>
-                                                    <p class="m-0 myfont-size my-font-color">Ultimo messaggio inviato</p>
-                                                </div>
-                                                <div>
-                                                    <p class="position-absolute top-0 end-0 my-2 mx-3 my-font-color" style="font-size: 0.7rem;">12:00</p>
-                                                </div>
-                                            </div>
+                                            <!-- <template v-for="msg, index in contact.messages">
+                                                <template v-if="index == contact.messages.length - 1"> -->
+                                                    
+                                                        <div @click="cliccato(i)" class="d-flex flex-row align-items-center myh-2 ps-2 position-relative myborder" :class="{'clickbg' : activeConv == i}">
+                                                            <div class="circle">
+                                                                <img class="object-fit-cover w-100" :src="contact.avatar" alt="">
+                                                            </div>
+                                                            <div>
+                                                                <p class="m-0 fw-bold">{{ contact.name }}</p>
+                                                                <!-- <p class="m-0 myfont-size my-font-color">{{ contact.messages[contact.messages.length - 1].message }}</p> -->
+                                                                <p class="m-0 myfont-size my-font-color">{{ lastElement(contact.messages).message }}</p>
+                                                            </div>
+                                                            <div>
+                                                                <p class="position-absolute top-0 end-0 my-2 mx-3 my-font-color" style="font-size: 0.7rem;">12:00</p>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                <!-- </template>
+                                            </template> -->
                                         </template>
                                     </div>
                                 </div>
@@ -96,22 +103,25 @@
                                         </div>
                                     </nav>
                                     <div class="box-conversazioni overflow-auto p-5">
-                                        <template v-for="contact, i in contacts">
-                                            <template v-for="msg, index in contact.messages">
-                                                <template v-if="i == activeConv">
-                                                    <div class="container">
-                                                        <div class="row">
-                                                            <div class="col-12 d-flex my-1" :class="{'justify-content-end' : msg.status == 'sent', 'justify-content-start' : msg.status == 'received'}">
-                                                                <div class="box-mssg position-relative my-2" :class="{'mssg-sent' : msg.status == 'sent', 'mssg-received' : msg.status == 'received'}">
-                                                                    <p class="word-break">{{ msg.message }}</p>
-                                                                    <p class="position-absolute bottom-0 end-0 my-1 mx-2 my-font-color" style="font-size: 0.7rem;">12:00</p>
+                                        <!-- <div>{{ contacts[activeConv].messages }}</div> -->
+                                        <!-- <template v-for="contact, i in contacts"> -->
+                                            <!-- <template v-for="msg, index in contact.messages"> -->
+                                                <template v-for="msg, index in contacts[activeConv].messages">
+                                                    <!-- <template v-if="i == activeConv"> -->
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-12 d-flex my-1" :class="{'justify-content-end' : msg.status == 'sent', 'justify-content-start' : msg.status == 'received'}">
+                                                                    <div class="box-mssg position-relative my-2" :class="{'mssg-sent' : msg.status == 'sent', 'mssg-received' : msg.status == 'received'}">
+                                                                        <p class="word-break">{{ msg.message }}</p>
+                                                                        <p class="position-absolute bottom-0 end-0 my-1 mx-2 my-font-color" style="font-size: 0.7rem;">12:00</p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    <!-- </template> -->
                                                 </template>
-                                            </template>
-                                        </template>
+                                            <!-- </template> -->
+                                        <!-- </template> -->
                                     </div>
                                     <div class="container">
                                         <div class="d-flex flex-row align-items-center myh-2">
@@ -119,7 +129,7 @@
                                                 <i class="fa-regular fa-face-smile"></i>
                                             </div>
                                             <div class="w-100">
-                                                <input type="text" id="inputMessage" class="form-control" placeholder="Scrivi un messaggio" aria-describedby="messages">
+                                                <input v-model="inputValue" @keyup.enter="inputMessage()" type="text" id="inputMessage" class="form-control" placeholder="Scrivi un messaggio" aria-describedby="messages">
                                             </div>
                                             <div class="icons ms-4">
                                                 <i class="fa-solid fa-microphone"></i>

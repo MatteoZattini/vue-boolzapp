@@ -191,7 +191,20 @@ createApp({
     // },
     cliccato(index) {
       this.activeConv = index
-    }
+    },
+
+    lastElement(array) {
+      const ultimoIndice = array.length - 1
+      return array[ultimoIndice]
+  },
+
+  inputMessage() {
+    this.contacts[this.activeConv].messages.push({
+      message: this.inputValue,
+      status: "sent",
+    })
+    this.inputValue = "";
+  }
 
   },
 
