@@ -50,14 +50,13 @@
                                     <div class="myh-2 mx-2 d-flex align-items-center">
                                         <div class="input-group">
                                             <span class="input-group-text bg-white" id="basic-addon1"><i style="font-size: 1rem;" class="fa-solid fa-magnifying-glass"></i></span>
-                                            <input type="text" class="form-control bg-white" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
+                                            <input v-model="inputValueSearch" type="text" class="form-control bg-white" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="box-contatti bg-white overflow-auto" style="border-bottom-left-radius: 10px;">
-                                        <template v-for="contact, i in contacts">
+                                        <template v-for="contact, i in filteredContacts">
                                             <!-- <template v-for="msg, index in contact.messages">
                                                 <template v-if="index == contact.messages.length - 1"> -->
-                                                    
                                                         <div @click="cliccato(i)" class="d-flex flex-row align-items-center myh-2 ps-2 position-relative myborder" :class="{'clickbg' : activeConv == i}">
                                                             <div class="circle">
                                                                 <img class="object-fit-cover w-100" :src="contact.avatar" alt="">
@@ -129,7 +128,7 @@
                                                 <i class="fa-regular fa-face-smile"></i>
                                             </div>
                                             <div class="w-100">
-                                                <input v-model="inputValue" @keyup.enter="inputMessage()" type="text" id="inputMessage" class="form-control" placeholder="Scrivi un messaggio" aria-describedby="messages">
+                                                <input v-model="inputValueMssg" @keyup.enter="inputMessage()" type="text" id="inputMessage" class="form-control" placeholder="Scrivi un messaggio" aria-describedby="messages">
                                             </div>
                                             <div class="icons ms-4">
                                                 <i class="fa-solid fa-microphone"></i>

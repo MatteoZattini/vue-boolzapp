@@ -167,7 +167,9 @@ createApp({
         }
       ],
       activeConv: 0,
-      inputValue: "",
+      inputValueMssg: "",
+      inputValueSearch: "",
+      searchedContacts: [],
 
     }
   },
@@ -200,18 +202,26 @@ createApp({
 
   inputMessage() {
     this.contacts[this.activeConv].messages.push({
-      message: this.inputValue,
+      message: this.inputValueMssg,
       status: "sent",
     })
-    this.inputValue = "";
+    this.inputValueMssg = "";
     setTimeout(() => {
       this.contacts[this.activeConv].messages.push({
         message: "Okay",
         status: "received",
       })
     }, 2000)
-  }
+  },
 
+  },
+
+  computed: {
+    filteredContacts: function() {
+      return this.contacts.filter((contact) => {
+        return contact.name.toLowerCase().match(this.inputValueSearch)
+      })
+    }
   },
 
   mounted() {
