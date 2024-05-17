@@ -204,6 +204,12 @@ createApp({
       status: "sent",
     })
     this.inputValue = "";
+    setTimeout(() => {
+      this.contacts[this.activeConv].messages.push({
+        message: "Okay",
+        status: "received",
+      })
+    }, 2000)
   }
 
   },
