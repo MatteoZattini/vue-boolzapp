@@ -104,13 +104,13 @@ createApp({
           visible: true,
           messages: [
             {
-              date: '10/01/2020',
+              date: '22/01/2020',
               time: '15:30',
               message: 'Ricordati di chiamare la nonna',
               status: 'sent'
             },
             {
-              date: 'ultimo accesso 10/01/2020',
+              date: 'ultimo accesso 22/01/2020',
               time: '15:50',
               message: 'Va bene, stasera la sento',
               status: 'received'
@@ -123,19 +123,19 @@ createApp({
           visible: true,
           messages: [
             {
-              date: 'ultimo accesso 10/01/2020',
+              date: 'ultimo accesso 12/02/2020',
               time: '15:30',
               message: 'Ciao Claudia, hai novità?',
               status: 'sent'
             },
             {
-              date: 'ultimo accesso 10/01/2020',
+              date: 'ultimo accesso 12/02/2020',
               time: '15:50',
               message: 'Non ancora',
               status: 'received'
             },
             {
-              date: 'ultimo accesso 10/01/2020',
+              date: 'ultimo accesso 12/02/2020',
               time: '15:51',
               message: 'Nessuna nuova, buona nuova',
               status: 'sent'
@@ -148,13 +148,13 @@ createApp({
           visible: true,
           messages: [
             {
-              date: 'ultimo accesso 10/01/2020',
+              date: 'ultimo accesso 05/05/2020',
               time: '15:30',
               message: 'Fai gli auguri a Martina che è il suo compleanno!',
               status: 'sent'
             },
             {
-              date: 'ultimo accesso 10/01/2020',
+              date: 'ultimo accesso 05/05/2020',
               time: '15:50',
               message: 'Grazie per avermelo ricordato, le scrivo subito!',
               status: 'received'
@@ -167,19 +167,19 @@ createApp({
           visible: true,
           messages: [
             {
-              date: 'ultimo accesso 10/01/2020',
+              date: 'ultimo accesso 17/02/2020',
               time: '15:30',
               message: 'Ciao, andiamo a mangiare la pizza stasera?',
               status: 'received'
             },
             {
-              date: 'ultimo accesso 10/01/2020',
+              date: 'ultimo accesso 17/02/2020',
               time: '15:50',
               message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
               status: 'sent'
             },
             {
-              date: 'ultimo accesso 10/01/2020',
+              date: 'ultimo accesso 17/02/2020',
               time: '15:51',
               message: 'OK!!',
               status: 'received'
@@ -196,22 +196,6 @@ createApp({
   },
 
   methods: {
-    // mssgStatus() {
-    //   for (let i = 0; i < this.contacts.length; i++) {
-    //     const element = this.contacts[i];
-    //     let x = element.messages
-    //     for (let i = 0; i < x.length; i++) {
-    //       console.log(x[i].status)
-    //       let y = x[i].status
-    //       return y
-    //     }
-    //   }
-    //   if ( y == "received") {
-    //     return "mssg-received"
-    //   } else if ( y == "sent") {
-    //     return "mssg-sent"
-    //   }
-    // },
     cliccato(index) {
       this.activeConv = index
     },
@@ -236,8 +220,16 @@ createApp({
         time: '19:00',
         status: "received",
       })
-    }, 3000)
+    }, 2000)
   },
+
+  accrocchio() {
+    this.activeConv= 0
+  },
+
+  deleteMssg() {
+
+  }
 
   },
 

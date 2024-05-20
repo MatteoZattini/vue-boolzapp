@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -54,7 +54,7 @@
                                     <div class="myh-2 mx-2 d-flex align-items-center">
                                         <div class="input-group">
                                             <span class="input-group-text bg-white" id="basic-addon1"><i style="font-size: 1rem;" class="fa-solid fa-magnifying-glass"></i></span>
-                                            <input v-model="inputValueSearch" type="text" class="form-control bg-white" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
+                                            <input v-model="inputValueSearch" @input="accrocchio" type="text" class="form-control bg-white" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <!-- sezione contatti -->
@@ -85,7 +85,7 @@
                                 <div class="col-8">
                                     <nav class="d-flex flex-row justify-content-between align-items-center myh-2">
                                         <div class="d-flex flex-row align-items-center ps-2">
-                                            <template v-for="contact, i in contacts">
+                                            <template v-for="contact, i in filteredContacts">
                                                 <template v-if="i == activeConv">
                                                     <div class="circle">
                                                         <img class="object-fit-cover w-100" :src="contact.avatar" alt="">
@@ -114,12 +114,17 @@
                                         <!-- <div>{{ contacts[activeConv].messages }}</div> -->
                                         <!-- <template v-for="contact, i in contacts"> -->
                                             <!-- <template v-for="msg, index in contact.messages"> -->
-                                                <template v-for="msg, index in contacts[activeConv].messages">
+                                                <template v-for="msg, index in filteredContacts[activeConv].messages">
                                                     <!-- <template v-if="i == activeConv"> -->
                                                         <div class="container">
                                                             <div class="row">
-                                                                <div class="col-12 d-flex my-1" :class="{'justify-content-end' : msg.status == 'sent', 'justify-content-start' : msg.status == 'received'}">
-                                                                    <div class="box-mssg position-relative my-2" :class="{'mssg-sent' : msg.status == 'sent', 'mssg-received' : msg.status == 'received'}">
+                                                                <div class="col-12 d-flex my-1 dropend" :class="{'justify-content-end' : msg.status == 'sent', 'justify-content-start' : msg.status == 'received'}">
+                                                                    <div class="box-mssg position-relative my-2" data-bs-toggle="dropdown" :class="{'mssg-sent' : msg.status == 'sent', 'mssg-received' : msg.status == 'received'}">
+                                                                        <ul class="dropdown-menu p-2">
+                                                                            <li><i class="fa-solid fa-comment"></i>Rispondi</li>
+                                                                            <li><i class="fa-solid fa-share"></i>Condividi</li>
+                                                                            <li><i class="fa-solid fa-trash-can"></i>Cancella</li>
+                                                                        </ul>
                                                                         <p class="word-break">{{ msg.message }}</p>
                                                                         <p class="position-absolute bottom-0 end-0 my-1 mx-2 my-font-color" style="font-size: 0.7rem;">{{ msg.time }}</p>
                                                                     </div>
@@ -155,5 +160,6 @@
     </div>
 
     <script src="./main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
