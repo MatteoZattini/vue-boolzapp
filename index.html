@@ -119,11 +119,11 @@
                                                         <div class="container">
                                                             <div class="row">
                                                                 <div class="col-12 d-flex my-1 dropend" :class="{'justify-content-end' : msg.status == 'sent', 'justify-content-start' : msg.status == 'received'}">
-                                                                    <div class="box-mssg position-relative my-2" data-bs-toggle="dropdown" :class="{'mssg-sent' : msg.status == 'sent', 'mssg-received' : msg.status == 'received'}">
+                                                                    <div @click="indexMessage(index)" class="box-mssg position-relative my-2" data-bs-toggle="dropdown" :class="{'mssg-sent' : msg.status == 'sent', 'mssg-received' : msg.status == 'received'}">
                                                                         <ul class="dropdown-menu p-2">
                                                                             <li><i class="fa-solid fa-comment"></i>Rispondi</li>
                                                                             <li><i class="fa-solid fa-share"></i>Condividi</li>
-                                                                            <li><i class="fa-solid fa-trash-can"></i>Cancella</li>
+                                                                            <li @click="deleteMssg(activeConv, activeMssg)"><i class="fa-solid fa-trash-can"></i>Cancella</li>
                                                                         </ul>
                                                                         <p class="word-break">{{ msg.message }}</p>
                                                                         <p class="position-absolute bottom-0 end-0 my-1 mx-2 my-font-color" style="font-size: 0.7rem;">{{ msg.time }}</p>

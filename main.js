@@ -191,6 +191,7 @@ createApp({
       inputValueMssg: "",
       inputValueSearch: "",
       searchedContacts: [],
+      activeMssg: null,
       
     }
   },
@@ -200,13 +201,18 @@ createApp({
       this.activeConv = index
     },
 
+    indexMessage(index) {
+      this.activeMssg = index
+      return this.activeMssg
+    },
+
     lastElement(array) {
       const ultimoIndice = array.length - 1
       return array[ultimoIndice]
   },
 
   inputMessage() {
-    this.contacts[this.activeConv].messages.push({
+    this.filteredContacts[this.activeConv].messages.push({
       message: this.inputValueMssg,
       date: 'Online',
       time: '18:59',
@@ -214,7 +220,7 @@ createApp({
     })
     this.inputValueMssg = "";
     setTimeout(() => {
-      this.contacts[this.activeConv].messages.push({
+      this.filteredContacts[this.activeConv].messages.push({
         message: "Okay",
         date: 'ultimo accesso 10/01/2020',
         time: '19:00',
@@ -227,8 +233,8 @@ createApp({
     this.activeConv= 0
   },
 
-  deleteMssg() {
-
+  deleteMssg(index, messageIndex) {
+    this.filteredContacts[index].messages.splice(messageIndex, 1);
   }
 
   },
